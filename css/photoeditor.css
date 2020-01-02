@@ -4,10 +4,8 @@ html, body, div, span {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
-
 .divClose {
     position: fixed;
     top: 0px;
@@ -409,3 +407,8 @@ figure {
     list-style: none;
     display: inline;
 }  
+
+#pe-ratio-4-3, #pe-ratio-16-9 {
+  border: 1px solid white;
+  border-radius: 10px;
+}

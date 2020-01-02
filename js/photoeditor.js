@@ -1,5 +1,5 @@
 var photoEditor = {
-    element: ' <div class="pe-main"><div class="divClose" style="text-align:right"><span id="btnClose" style="color:white;padding:8px;font-size:30px;" class="fa fa-window-close"></span></div><div id="pe-img-edit" class="table pe-img-edit" ><div class="tableCell box" id="pe-container"><canvas id="pe-panel"></canvas><label id="pe-uploadImg" style="text-align: center"><p style="color:white; font-size: 36px;">Click to upload image</p><input type="file" class="sr-only" id="pe-input" name="image" accept="image/*"></label><label id="pe-choeseImg" style="text-align: center"></label></div></div><div class="table"><div class="pe-toolbar"><div class="pe-toolbar_button" id="pe-renderBtn" name="Render"><span class="fa fa-save pe-tooltip"></span><span class="pe-tooltiptext">Save</span></div><div class="pe-toolbar_button" id="pe-downloadBtn" name="Download"><span class="fa fa-download pe-tooltip"></span><span class="pe-tooltiptext">Download</span></div><div class="pe-toolbar_button" id="pe-dragBttn" name="Drag"><span class="fa fa-arrows pe-tooltip"></span><span class="pe-tooltiptext">Drag</span></div><div class="pe-toolbar_button" id="pe-resizeBttn" name="Resize"><span class="fa fa-expand pe-tooltip"></span><span class="pe-tooltiptext">Resize</span></div><div class="pe-sizearea" id="pe-widthInput" style="display: none;"><span>Width</span><input type="text" id="pe-widthValue" style="width: 30px"></div><div class="pe-sizearea" id="pe-heightInput" style="display: none;"><span>Height</span><input type="text" id="pe-heightValue" style="width: 30px"></div><div class="pe-toolbar_button" id="pe-cropBttn" name="Crop"><span class="fa fa-crop pe-tooltip"></span><span class="pe-tooltiptext">Crop</span></div><div class="pe-toolbar_button" id="pe-zoominBttn" name="ZoomIn"><span class="fa fa-search-minus pe-tooltip"></span><span class="pe-tooltiptext">ZoomIn</span></div><div class="pe-toolbar_button" id="pe-zoomoutBttn" name="Zoomout"><span class="fa fa-search-plus pe-tooltip"></span><span class="pe-tooltiptext">ZoomOut</span></div><div class="pe-toolbar_button" id="pe-orientateBttn" name="Zoomout"><span class="fa fa-refresh pe-tooltip"></span><span class="pe-tooltiptext">Orientation</span></div><div class="pe-toolbar_button" id="pe-rotateLeft" style="display: none" name="Rotate Counterclockwise"><span class="fa fa-rotate-left pe-tooltip"></span><span class="pe-tooltiptext">Rotate Counterclockwise</span></div><div class="pe-toolbar_button" id="pe-rotateRight" style="display: none" name="Rotate Clockwise"><span class="fa fa-rotate-right pe-tooltip"></span><span class="pe-tooltiptext">Rotate Clockwise</span></div><div class="pe-toolbar_button" id="pe-vertical" style="display: none"><span class="fa fa-arrows-h pe-tooltip"></span><span class="pe-tooltiptext">Vertical</span></div><div class="pe-toolbar_button" id="pe-horizontal" style="display: none"><span class="fa fa-arrows-v pe-tooltip"></span><span class="pe-tooltiptext">Horizontal</span></div><div class="pe-toolbar_button" id="pe-contrast" name="Contrast"><span class="fa fa-adjust pe-tooltip"></span><span class="pe-tooltiptext">Contrast</span></div><div class="pe-toolbar_button" id="pe-brightness" name="Brightness"><span class="fa fa-sun-o pe-tooltip"></span><span class="pe-tooltiptext">Brighness</span></div><div class="pe-toolbar_button" id="pe-blur" name="Blur"><span class="fa fa-filter pe-tooltip"></span><span class="pe-tooltiptext">Blur</span></div><div class="pe-toolbar_button" id="pe-grayscale" name="Grayscale"><span class="fa fa-snowflake-o pe-tooltip"></span><span class="pe-tooltiptext">Grayscale</span></div><div class="pe-toolbar_button" id="pe-saturate" name="Saturate"><span class="fa fa-diamond pe-tooltip"></span><span class="pe-tooltiptext">Saturate</span></div><div class="pe-toolbar_button" id="pe-filter" name="Saturate"><span class="fa fa-cogs pe-tooltip"></span><span class="pe-tooltiptext">Filter</span></div><div class="pe-toolbar_button" id="pe-undoBttn" name="Undo"><span class="fa fa-mail-reply pe-tooltip"></span><span class="pe-tooltiptext">Undo</span></div><div class="pe-toolbar_button " id="pe-redoBttn" name="Redo"><span class="fa fa-mail-forward pe-tooltip"></span><span class="pe-tooltiptext">Redo</span></div><div class="pe-slidecontainer pe-sizearea" style="display: none" id="pe-slideBar"><input type="range" min="0" max="200" value="100" class="pe-slider" id="pe-rangeBar"><span id="pe-filterValue"></span></div><div id="pe-filterArea" style="display: none"><figure class="pe-brannan pe-tooltip"><img id="pe-brannan" class="pe-img"><span class="pe-tooltiptext">brannan</span></figure><figure class="pe-aden pe-tooltip"><img id="pe-aden" class="pe-img"><span class="pe-tooltiptext">Aden</span></figure><figure class="pe-clarendon pe-tooltip"><img id="pe-clarendon" class="pe-img"><span class="pe-tooltiptext">Clarendon</span></figure><figure class="pe-lofi pe-tooltip" id="style1"><img id="pe-lofi" class="pe-img"><span class="pe-tooltiptext"> Lofi</span></figure><figure class="pe-amaro pe-tooltip"><img id="pe-amaro" class="pe-img"><span class="pe-tooltiptext">Amaro</span></figure><figure class="pe-walden pe-tooltip"><img id="pe-walden" class="pe-img"><span class="pe-tooltiptext">Walden</span></figure><figure class="pe-maven pe-tooltip"><img id="pe-maven" class="pe-img"><span class="pe-tooltiptext">Maven</span></figure><figure class="pe-brooklyn pe-tooltip"><img id="pe-brooklyn" class="pe-img"><span class="pe-tooltiptext">Brooklyn</span></figure><figure class="pe-xpro2 pe-tooltip"><img id="pe-xpro2" class="pe-img"><span class="pe-tooltiptext">Xpro2</span></figure><figure class="pe-toaster pe-tooltip"><img id="pe-toaster" class="pe-img"><span class="pe-tooltiptext">Toaster</span></figure><figure class="pe-stinson pe-tooltip"><img id="pe-stinson" class="pe-img"><span class="pe-tooltiptext">Stinson</span></figure><figure class="pe-inkwell pe-tooltip"><img id="pe-inkwell" class="pe-img"><span class="pe-tooltiptext">Inkwell</span></figure></div><button class="pe-toolbar_button" id="pe-doneBttn" name="Apply" style="display:none;"><span class="fa fa-check"></span></button><button class="pe-toolbar_button" id="pe-cancelBttn" name="Cancel" style="display: none;"><span class="fa fa-close"></span></button></div></div></div>',
+    element: ' <div class="pe-main"><div class="divClose" style="text-align:right"><span id="btnClose" style="color:white;padding:8px;font-size:30px;" class="fa fa-window-close"></span></div><div id="pe-img-edit" class="table pe-img-edit" ><div class="tableCell box" id="pe-container"><canvas id="pe-panel"></canvas><label id="pe-uploadImg" style="text-align: center"><p style="color:white; font-size: 36px;">Click to upload image</p><input type="file" class="sr-only" id="pe-input" name="image" accept="image/*"></label><label id="pe-choeseImg" style="text-align: center"></label></div></div><div class="table"><div class="pe-toolbar"><div class="pe-toolbar_button" id="pe-renderBtn" name="Render"><span class="fa fa-save pe-tooltip"></span><span class="pe-tooltiptext">Save</span></div><div class="pe-toolbar_button" id="pe-downloadBtn" name="Download"><span class="fa fa-download pe-tooltip"></span><span class="pe-tooltiptext">Download</span></div><div class="pe-toolbar_button" id="pe-dragBttn" name="Drag"><span class="fa fa-arrows pe-tooltip"></span><span class="pe-tooltiptext">Drag</span></div><div class="pe-toolbar_button" id="pe-resizeBttn" name="Resize"><span class="fa fa-expand pe-tooltip"></span><span class="pe-tooltiptext">Resize</span></div><div class="pe-sizearea" id="pe-widthInput" style="display: none;"><span>Width</span><input type="text" id="pe-widthValue" style="width: 30px"></div><div class="pe-sizearea" id="pe-heightInput" style="display: none;"><span>Height</span><input type="text" id="pe-heightValue" style="width: 30px"></div><div class="pe-toolbar_button" id="pe-cropBttn" name="Crop"><span class="fa fa-crop pe-tooltip"></span><span class="pe-tooltiptext">Crop</span></div><div class="pe-toolbar_button" id="pe-zoominBttn" name="ZoomIn"><span class="fa fa-search-minus pe-tooltip"></span><span class="pe-tooltiptext">ZoomIn</span></div><div class="pe-toolbar_button" id="pe-zoomoutBttn" name="Zoomout"><span class="fa fa-search-plus pe-tooltip"></span><span class="pe-tooltiptext">ZoomOut</span></div><div class="pe-toolbar_button" id="pe-cutdown" style="display: none" name="Cutdown"><span class="fa fa-expand pe-tooltip"></span><span class="pe-tooltiptext">Cutdown</span></div><div class="pe-toolbar_button" id="pe-cut-square" style="display: none" name="Square"><span class="fa fa-square-o pe-tooltip"></span><span class="pe-tooltiptext">Square</span></div><div class="pe-toolbar_button" id="pe-ratio-4-3" style="display: none" name="Ratio 4:3"><span class="fa pe-tooltip">4:3</span><span class="pe-tooltiptext">Ratio 4:3</span></div><div class="pe-toolbar_button" id="pe-ratio-16-9" style="display: none" name="Ratio 19:9"><span class="fa pe-tooltip">16:9</span><span class="pe-tooltiptext">Ratio 16:9</span></div><div class="pe-toolbar_button" id="pe-orientateBttn" name="Zoomout"><span class="fa fa-refresh pe-tooltip"></span><span class="pe-tooltiptext">Orientation</span></div><div class="pe-toolbar_button" id="pe-rotateLeft" style="display: none" name="Rotate Counterclockwise"><span class="fa fa-rotate-left pe-tooltip"></span><span class="pe-tooltiptext">Rotate Counterclockwise</span></div><div class="pe-toolbar_button" id="pe-rotateRight" style="display: none" name="Rotate Clockwise"><span class="fa fa-rotate-right pe-tooltip"></span><span class="pe-tooltiptext">Rotate Clockwise</span></div><div class="pe-toolbar_button" id="pe-vertical" style="display: none"><span class="fa fa-arrows-h pe-tooltip"></span><span class="pe-tooltiptext">Vertical</span></div><div class="pe-toolbar_button" id="pe-horizontal" style="display: none"><span class="fa fa-arrows-v pe-tooltip"></span><span class="pe-tooltiptext">Horizontal</span></div><div class="pe-toolbar_button" id="pe-contrast" name="Contrast"><span class="fa fa-adjust pe-tooltip"></span><span class="pe-tooltiptext">Contrast</span></div><div class="pe-toolbar_button" id="pe-brightness" name="Brightness"><span class="fa fa-sun-o pe-tooltip"></span><span class="pe-tooltiptext">Brighness</span></div><div class="pe-toolbar_button" id="pe-blur" name="Blur"><span class="fa fa-filter pe-tooltip"></span><span class="pe-tooltiptext">Blur</span></div><div class="pe-toolbar_button" id="pe-grayscale" name="Grayscale"><span class="fa fa-snowflake-o pe-tooltip"></span><span class="pe-tooltiptext">Grayscale</span></div><div class="pe-toolbar_button" id="pe-saturate" name="Saturate"><span class="fa fa-diamond pe-tooltip"></span><span class="pe-tooltiptext">Saturate</span></div><div class="pe-toolbar_button" id="pe-filter" name="Saturate"><span class="fa fa-cogs pe-tooltip"></span><span class="pe-tooltiptext">Filter</span></div><div class="pe-toolbar_button" id="pe-undoBttn" name="Undo"><span class="fa fa-mail-reply pe-tooltip"></span><span class="pe-tooltiptext">Undo</span></div><div class="pe-toolbar_button " id="pe-redoBttn" name="Redo"><span class="fa fa-mail-forward pe-tooltip"></span><span class="pe-tooltiptext">Redo</span></div><div class="pe-slidecontainer pe-sizearea" style="display: none" id="pe-slideBar"><input type="range" min="0" max="200" value="100" class="pe-slider" id="pe-rangeBar"><span id="pe-filterValue"></span></div><div id="pe-filterArea" style="display: none"><figure class="pe-brannan pe-tooltip"><img id="pe-brannan" class="pe-img"><span class="pe-tooltiptext">brannan</span></figure><figure class="pe-aden pe-tooltip"><img id="pe-aden" class="pe-img"><span class="pe-tooltiptext">Aden</span></figure><figure class="pe-clarendon pe-tooltip"><img id="pe-clarendon" class="pe-img"><span class="pe-tooltiptext">Clarendon</span></figure><figure class="pe-lofi pe-tooltip" id="style1"><img id="pe-lofi" class="pe-img"><span class="pe-tooltiptext"> Lofi</span></figure><figure class="pe-amaro pe-tooltip"><img id="pe-amaro" class="pe-img"><span class="pe-tooltiptext">Amaro</span></figure><figure class="pe-walden pe-tooltip"><img id="pe-walden" class="pe-img"><span class="pe-tooltiptext">Walden</span></figure><figure class="pe-maven pe-tooltip"><img id="pe-maven" class="pe-img"><span class="pe-tooltiptext">Maven</span></figure><figure class="pe-brooklyn pe-tooltip"><img id="pe-brooklyn" class="pe-img"><span class="pe-tooltiptext">Brooklyn</span></figure><figure class="pe-xpro2 pe-tooltip"><img id="pe-xpro2" class="pe-img"><span class="pe-tooltiptext">Xpro2</span></figure><figure class="pe-toaster pe-tooltip"><img id="pe-toaster" class="pe-img"><span class="pe-tooltiptext">Toaster</span></figure><figure class="pe-stinson pe-tooltip"><img id="pe-stinson" class="pe-img"><span class="pe-tooltiptext">Stinson</span></figure><figure class="pe-inkwell pe-tooltip"><img id="pe-inkwell" class="pe-img"><span class="pe-tooltiptext">Inkwell</span></figure></div><button class="pe-toolbar_button" id="pe-doneBttn" name="Apply" style="display:none;"><span class="fa fa-check"></span></button><button class="pe-toolbar_button" id="pe-cancelBttn" name="Cancel" style="display: none;"><span class="fa fa-close"></span></button></div></div></div>',
     ctx: null,
     image: null,
     click: false,
@@ -135,6 +135,10 @@ var photoEditor = {
             }
             tmp.openEditToolBar();
 
+            document.getElementById('pe-cutdown').style.display = 'inline-block';
+            document.getElementById('pe-cut-square').style.display = 'inline-block';
+            document.getElementById('pe-ratio-4-3').style.display = 'inline-block';
+            document.getElementById('pe-ratio-16-9').style.display = 'inline-block';
             document.getElementById('pe-cropBttn').style.display = 'inline-block';
 
             tmp.initEventsOnCanvas();
@@ -152,11 +156,11 @@ var photoEditor = {
             container.removeEventListener("mousemove", tmp.drag);
         });
     },
-
     /**
      * get uploaded image and draw canvas
      *
      */
+
     initCanvas: function(urlImg, nameTag) {
         var tmp = this;
         this.image = new Image();
@@ -183,14 +187,13 @@ var photoEditor = {
             imageTMP.src = urlImg;
 
             if (heightImageBefore >= heightDivEdit) {
-                ratioHeight = heightImageBefore / heightDivEdit;
+                tileHeight = heightImageBefore / heightDivEdit;
                 heightImage = heightDivEdit;
-                widthImage = widthImageBefore / ratioHeight;
-            } 
-            if(widthImageBefore >= widthDivEdit) {
-                ratioWidth = widthImageBefore / widthDivEdit;
-                widthImage = widthDivEdit;
-                heightImage = heightImageBefore / ratioWidth;
+                widthImage = widthImageBefore / tileHeight;
+            } else {
+                tileWidth = widthImageBefore / widthDivEdit;
+                widthDivEdit = widthImageBefore;
+                heightImage = heightImageBefore / tileWidth;
             }
 
             imageTMP.onload = function() {
@@ -199,36 +202,37 @@ var photoEditor = {
                 tmp.ctx.canvas.width = this.width;
                 tmp.ctx.canvas.height = this.height;
                 tmp.ctx.drawImage(this, 0, 0, widthImage, heightImage);
-             
+
                 tmp.refreshBtn();
-                tmp.pushImg(tmp);
+                tmp.pushImage(tmp);
             }
             st1 == '2st';
         } else {
+            this.image = new Image();
+            this.image.setAttribute('crossOrigin', 'anonymous'); //optional,  it is needed only if your image is not avalible on same domain.
+            this.image.src = urlImg;
+
             document.getElementById('pe-input').addEventListener('change', function (e) {
+
                 var files = e.target.files;
                 tmp.uploadFromPC = true;
                 if (files && files.length > 0) {
                     var reader = new FileReader();
                     formatImage = files['0'].name.split('.')[1];
-
                     reader.onload = function (e) {
                         imageTMP = new Image();
                         imageTMP.src = reader.result;
                         imageTMP.onload = function () {
                             if (this.width >= widthDivEdit || this.height >= heightDivEdit) {
                                 if (this.width >= widthDivEdit) {
-                                    ratioWidth = this.width / widthDivEdit;
+                                    tileWidth = this.width / widthDivEdit;
                                     this.width = widthDivEdit;
-                                    this.height = this.height / ratioWidth;
-                                } 
-                                if(this.height >= heightDivEdit) {
-                                    ratioHeight = this.height / heightDivEdit;
+                                    this.height = this.height / tileWidth;
+                                } else {
+                                    tileHeight = this.height / heightDivEdit;
                                     this.height = heightDivEdit;
-                                    this.width = this.width / ratioHeight;
+                                    this.width = this.width / tileHeight;
                                 }
-                            } else {
-                                tmp.image.src = reader.result;
                             }
 
                             tmp.ctx.canvas.width = this.width;
@@ -236,7 +240,7 @@ var photoEditor = {
                             tmp.ctx.drawImage(this, 0, 0, this.width, this.height);
 
                             tmp.refreshBtn();
-                            tmp.pushImg(tmp);
+                            tmp.pushImage(tmp);
                         }
                     };
                     reader.readAsDataURL(files[0]);
@@ -244,12 +248,13 @@ var photoEditor = {
             });
 
             this.image.onload = function() {
+                tmp.uploadFromPC = true;
                 this.ctx.canvas.width = this.image.width;
                 this.ctx.canvas.height = this.image.height;
                 this.ctx.drawImage(this.image, 0, 0);
 
                 this.refreshBtn();
-                this.pushImg(this);
+                this.pushImage(this);
             }.bind(this);
         }
     },
@@ -263,7 +268,7 @@ var photoEditor = {
         document.getElementById('pe-uploadImg').style.display = 'none';
     },
 
-    pushImg: function(tmp) {
+    pushImage: function(tmp) {
         var tempCtx = document.getElementById('pe-panel').getContext('2d');
         //add image to img_arr (for undo/redo)
         var newImg = new Image();
@@ -317,6 +322,10 @@ var photoEditor = {
         document.getElementById('pe-horizontal').style.display = 'none';
         document.getElementById('pe-rotateLeft').style.display = 'none';
         document.getElementById('pe-rotateRight').style.display = 'none';
+        document.getElementById('pe-cutdown').style.display = 'none';
+        document.getElementById('pe-cut-square').style.display = 'none';
+        document.getElementById('pe-ratio-4-3').style.display = 'none';
+        document.getElementById('pe-ratio-16-9').style.display = 'none';
     },
 
     /**
@@ -359,6 +368,10 @@ var photoEditor = {
         document.getElementById('pe-horizontal').style.display = 'none';
         document.getElementById('pe-rotateLeft').style.display = 'none';
         document.getElementById('pe-rotateRight').style.display = 'none';
+        document.getElementById('pe-cutdown').style.display = 'none';
+        document.getElementById('pe-cut-square').style.display = 'none';
+        document.getElementById('pe-ratio-4-3').style.display = 'none';
+        document.getElementById('pe-ratio-16-9').style.display = 'none';
     },
 
     /**
