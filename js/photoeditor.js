@@ -1,5 +1,6 @@
 var photoEditor = {
     element: ' <div class="pe-main"><div class="divClose" style="text-align:right"><span id="btnClose" style="color:white;padding:8px;font-size:30px;" class="fa fa-window-close"></span></div><div id="pe-img-edit" class="table pe-img-edit" ><div class="tableCell box" id="pe-container"><canvas id="pe-panel"></canvas><label id="pe-uploadImg" style="text-align: center"><p style="color:white; font-size: 36px;">Click to upload image</p><input type="file" class="sr-only" id="pe-input" name="image" accept="image/*"></label><label id="pe-choeseImg" style="text-align: center"></label></div></div><div class="table"><div class="pe-toolbar"><div class="pe-toolbar_button" id="pe-renderBtn" name="Render"><span class="fa fa-save pe-tooltip"></span><span class="pe-tooltiptext">Save</span></div><div class="pe-toolbar_button" id="pe-downloadBtn" name="Download"><span class="fa fa-download pe-tooltip"></span><span class="pe-tooltiptext">Download</span></div><div class="pe-toolbar_button" id="pe-dragBttn" name="Drag"><span class="fa fa-arrows pe-tooltip"></span><span class="pe-tooltiptext">Drag</span></div><div class="pe-toolbar_button" id="pe-resizeBttn" name="Resize"><span class="fa fa-expand pe-tooltip"></span><span class="pe-tooltiptext">Resize</span></div><div class="pe-sizearea" id="pe-widthInput" style="display: none;"><span>Width</span><input type="text" id="pe-widthValue" style="width: 30px"></div><div class="pe-sizearea" id="pe-heightInput" style="display: none;"><span>Height</span><input type="text" id="pe-heightValue" style="width: 30px"></div><div class="pe-toolbar_button" id="pe-cropBttn" name="Crop"><span class="fa fa-crop pe-tooltip"></span><span class="pe-tooltiptext">Crop</span></div><div class="pe-toolbar_button" id="pe-zoominBttn" name="ZoomIn"><span class="fa fa-search-minus pe-tooltip"></span><span class="pe-tooltiptext">ZoomIn</span></div><div class="pe-toolbar_button" id="pe-zoomoutBttn" name="Zoomout"><span class="fa fa-search-plus pe-tooltip"></span><span class="pe-tooltiptext">ZoomOut</span></div><div class="pe-toolbar_button" id="pe-cutdown" style="display: none" name="Cutdown"><span class="fa fa-expand pe-tooltip"></span><span class="pe-tooltiptext">Cutdown</span></div><div class="pe-toolbar_button" id="pe-cut-square" style="display: none" name="Square"><span class="fa fa-square-o pe-tooltip"></span><span class="pe-tooltiptext">Square</span></div><div class="pe-toolbar_button" id="pe-ratio-4-3" style="display: none" name="Ratio 4:3"><span class="fa pe-tooltip">4:3</span><span class="pe-tooltiptext">Ratio 4:3</span></div><div class="pe-toolbar_button" id="pe-ratio-16-9" style="display: none" name="Ratio 19:9"><span class="fa pe-tooltip">16:9</span><span class="pe-tooltiptext">Ratio 16:9</span></div><div class="pe-toolbar_button" id="pe-orientateBttn" name="Zoomout"><span class="fa fa-refresh pe-tooltip"></span><span class="pe-tooltiptext">Orientation</span></div><div class="pe-toolbar_button" id="pe-rotateLeft" style="display: none" name="Rotate Counterclockwise"><span class="fa fa-rotate-left pe-tooltip"></span><span class="pe-tooltiptext">Rotate Counterclockwise</span></div><div class="pe-toolbar_button" id="pe-rotateRight" style="display: none" name="Rotate Clockwise"><span class="fa fa-rotate-right pe-tooltip"></span><span class="pe-tooltiptext">Rotate Clockwise</span></div><div class="pe-toolbar_button" id="pe-vertical" style="display: none"><span class="fa fa-arrows-h pe-tooltip"></span><span class="pe-tooltiptext">Vertical</span></div><div class="pe-toolbar_button" id="pe-horizontal" style="display: none"><span class="fa fa-arrows-v pe-tooltip"></span><span class="pe-tooltiptext">Horizontal</span></div><div class="pe-toolbar_button" id="pe-contrast" name="Contrast"><span class="fa fa-adjust pe-tooltip"></span><span class="pe-tooltiptext">Contrast</span></div><div class="pe-toolbar_button" id="pe-brightness" name="Brightness"><span class="fa fa-sun-o pe-tooltip"></span><span class="pe-tooltiptext">Brighness</span></div><div class="pe-toolbar_button" id="pe-blur" name="Blur"><span class="fa fa-filter pe-tooltip"></span><span class="pe-tooltiptext">Blur</span></div><div class="pe-toolbar_button" id="pe-grayscale" name="Grayscale"><span class="fa fa-snowflake-o pe-tooltip"></span><span class="pe-tooltiptext">Grayscale</span></div><div class="pe-toolbar_button" id="pe-saturate" name="Saturate"><span class="fa fa-diamond pe-tooltip"></span><span class="pe-tooltiptext">Saturate</span></div><div class="pe-toolbar_button" id="pe-filter" name="Saturate"><span class="fa fa-cogs pe-tooltip"></span><span class="pe-tooltiptext">Filter</span></div><div class="pe-toolbar_button" id="pe-undoBttn" name="Undo"><span class="fa fa-mail-reply pe-tooltip"></span><span class="pe-tooltiptext">Undo</span></div><div class="pe-toolbar_button " id="pe-redoBttn" name="Redo"><span class="fa fa-mail-forward pe-tooltip"></span><span class="pe-tooltiptext">Redo</span></div><div class="pe-slidecontainer pe-sizearea" style="display: none" id="pe-slideBar"><input type="range" min="0" max="200" value="100" class="pe-slider" id="pe-rangeBar"><span id="pe-filterValue"></span></div><div id="pe-filterArea" style="display: none"><figure class="pe-brannan pe-tooltip"><img id="pe-brannan" class="pe-img"><span class="pe-tooltiptext">brannan</span></figure><figure class="pe-aden pe-tooltip"><img id="pe-aden" class="pe-img"><span class="pe-tooltiptext">Aden</span></figure><figure class="pe-clarendon pe-tooltip"><img id="pe-clarendon" class="pe-img"><span class="pe-tooltiptext">Clarendon</span></figure><figure class="pe-lofi pe-tooltip" id="style1"><img id="pe-lofi" class="pe-img"><span class="pe-tooltiptext"> Lofi</span></figure><figure class="pe-amaro pe-tooltip"><img id="pe-amaro" class="pe-img"><span class="pe-tooltiptext">Amaro</span></figure><figure class="pe-walden pe-tooltip"><img id="pe-walden" class="pe-img"><span class="pe-tooltiptext">Walden</span></figure><figure class="pe-maven pe-tooltip"><img id="pe-maven" class="pe-img"><span class="pe-tooltiptext">Maven</span></figure><figure class="pe-brooklyn pe-tooltip"><img id="pe-brooklyn" class="pe-img"><span class="pe-tooltiptext">Brooklyn</span></figure><figure class="pe-xpro2 pe-tooltip"><img id="pe-xpro2" class="pe-img"><span class="pe-tooltiptext">Xpro2</span></figure><figure class="pe-toaster pe-tooltip"><img id="pe-toaster" class="pe-img"><span class="pe-tooltiptext">Toaster</span></figure><figure class="pe-stinson pe-tooltip"><img id="pe-stinson" class="pe-img"><span class="pe-tooltiptext">Stinson</span></figure><figure class="pe-inkwell pe-tooltip"><img id="pe-inkwell" class="pe-img"><span class="pe-tooltiptext">Inkwell</span></figure></div><button class="pe-toolbar_button" id="pe-doneBttn" name="Apply" style="display:none;"><span class="fa fa-check"></span></button><button class="pe-toolbar_button" id="pe-cancelBttn" name="Cancel" style="display: none;"><span class="fa fa-close"></span></button></div></div></div>',
+    elementCrop: '<div id="elem" class="resizable"><div class="resizers" id="resizers"><div class="resizer top-left"></div><div class="resizer bottom-right"></div></div><div id="div-move"></div></div>',
     ctx: null,
     image: null,
     click: false,
@@ -7,7 +8,6 @@ var photoEditor = {
     downPointY: 0,
     lastPointX: 0,
     lastPointY: 0,
-    hoverBoxSize: 5,
     resize: false,
     canvasBackgroundColor: "#FFFFFF",
     img_arr: [],
@@ -28,6 +28,11 @@ var photoEditor = {
     tmpCheckEventCanvas : false,
     tmp_param : null,
     uploadFromPC : false,
+    checkCrop: false,
+    scaleSquare: 1,
+    scale43: 4/3,
+    scale169: 16/9,
+
     /**
      * Initlize canvas and handle button event
      *
@@ -78,8 +83,8 @@ var photoEditor = {
         document.getElementById("pe-saturate").onclick = this.changeImageFilter.bind(this, 'pe-saturate');
         document.getElementById("pe-cancelBttn").onclick = this.cancelEditImage.bind(this);
         document.getElementById("pe-orientateBttn").onclick = this.orientateImage.bind(this);
-        document.getElementById('pe-zoominBttn').onclick = this.zoom.bind(this, 0.5);
-        document.getElementById('pe-zoomoutBttn').onclick = this.zoom.bind(this, 1.5);
+        document.getElementById('pe-zoominBttn').onclick = this.zoom.bind(this, 0.9);
+        document.getElementById('pe-zoomoutBttn').onclick = this.zoom.bind(this, 1.1);
         document.getElementById('pe-undoBttn').onclick = this.undo.bind(this);
         document.getElementById('pe-redoBttn').onclick = this.redo.bind(this);
 
@@ -110,7 +115,6 @@ var photoEditor = {
             link.click();
             link.remove();
         });
-
         document.getElementById('pe-dragBttn').onclick = function(e) {
             tmp.ctx = document.getElementById("pe-panel").getContext("2d");
             tmp.image.src = tmp.ctx.canvas.toDataURL();
@@ -130,37 +134,76 @@ var photoEditor = {
         document.getElementById("pe-cropBttn").addEventListener('click', function() {
             tmp.ctx = document.getElementById("pe-panel").getContext("2d");
             tmp.image.src = tmp.ctx.canvas.toDataURL();
-            if (tmp.uploadFromPC == true) {
-                tmp.img_arr.splice(tmp.stack_position, 1);
-            }
+           
             tmp.openEditToolBar();
-
             document.getElementById('pe-cutdown').style.display = 'inline-block';
             document.getElementById('pe-cut-square').style.display = 'inline-block';
             document.getElementById('pe-ratio-4-3').style.display = 'inline-block';
             document.getElementById('pe-ratio-16-9').style.display = 'inline-block';
-            document.getElementById('pe-cropBttn').style.display = 'inline-block';
 
-            tmp.initEventsOnCanvas();
             document.getElementById("pe-doneBttn").onclick = tmp.cropImage.bind(tmp);
-
-            //remove drag event
-            var container = document.querySelector("#pe-container");
-            //mouse's mobile event
-            container.removeEventListener("touchstart", tmp.dragStart);
-            container.removeEventListener("touchend", tmp.dragEnd);
-            container.removeEventListener("touchmove", tmp.drag);
-            //mouse's mobile event
-            container.removeEventListener("mousedown", tmp.dragStart);
-            container.removeEventListener("mouseup", tmp.dragEnd);
-            container.removeEventListener("mousemove", tmp.drag);
+             if (tmp.uploadFromPC == true) {
+                setTimeout(function() {
+                    tmp.img_arr.pop();
+                }, 1000);
+            }
         });
+
+        document.getElementById("pe-cutdown").addEventListener('click', tmp.initCrop.bind(this, tmp, null));
+        document.getElementById("pe-cut-square").addEventListener('click', tmp.initCrop.bind(this, tmp, tmp.scaleSquare));
+        document.getElementById("pe-ratio-4-3").addEventListener('click', tmp.initCrop.bind(this, tmp, tmp.scale43));
+        document.getElementById("pe-ratio-16-9").addEventListener('click', tmp.initCrop.bind(this, tmp, tmp.scale169));
     },
+
+    /**
+     * Initlize area to crop by scale
+     *
+     */     
+    initCrop: function (tmp, ratio) {
+        tmp.checkCrop = true;
+        if (document.getElementById('parent') != null) {
+            document.getElementById('parent').remove();
+        }
+        canvas_tmp = document.getElementById('pe-panel');
+        pe_container = document.getElementById("pe-container");
+        const width_canvas = canvas_tmp.width;
+        const height_canvas = canvas_tmp.height;
+        var width_div_resizable = 0;
+        var height_div_resizable = 0;
+
+        var parent = document.createElement('div');
+        parent.style.width = width_canvas + 'px';
+        parent.style.height = height_canvas + 'px';
+        parent.style.top = (canvas_tmp.offsetTop - 2 - height_canvas/2) + 'px';
+        parent.style.left = (canvas_tmp.offsetLeft - 1 - width_canvas/2) + 'px';
+        parent.setAttribute('id', 'parent');
+        pe_container.appendChild(parent);
+
+        parent.innerHTML = tmp.elementCrop;
+        var div_resizable = document.getElementById('elem');
+        if (ratio !== null) {
+            if (width_canvas <= height_canvas ) {
+                width_div_resizable = width_canvas - 3 + 'px';
+                height_div_resizable = width_canvas / ratio - 3 + 'px';
+            } else {
+                width_div_resizable = height_canvas - 3 + 'px';
+                height_div_resizable = height_canvas / ratio - 3 + 'px';
+            }
+        } else {
+            width_div_resizable = width_canvas - 3 + 'px';
+            height_div_resizable = height_canvas - 3  + 'px';
+        }
+        div_resizable.style.width = width_div_resizable;
+        div_resizable.style.height = height_div_resizable;
+
+        this.makeResizableDiv('.resizable', tmp, ratio);
+        this.dragElement(div_resizable, tmp);
+    },
+
     /**
      * get uploaded image and draw canvas
      *
      */
-
     initCanvas: function(urlImg, nameTag) {
         var tmp = this;
         this.image = new Image();
@@ -169,7 +212,7 @@ var photoEditor = {
             this.image.src = urlImg;
             formatImage = urlImg.split('.').splice(-1)[0];
 
-            format = ['png', 'jpg', 'jpeg', 'gif']; 
+            format = ['png', 'jpg', 'jpeg', 'gif'];
             if(!format.includes(formatImage)){
                 formatImage = 'png';
             }
@@ -186,15 +229,9 @@ var photoEditor = {
             imageTMP.setAttribute('crossOrigin', 'anonymous');
             imageTMP.src = urlImg;
 
-            if (heightImageBefore >= heightDivEdit) {
-                tileHeight = heightImageBefore / heightDivEdit;
-                heightImage = heightDivEdit;
-                widthImage = widthImageBefore / tileHeight;
-            } else {
-                tileWidth = widthImageBefore / widthDivEdit;
-                widthDivEdit = widthImageBefore;
-                heightImage = heightImageBefore / tileWidth;
-            }
+            var newSizeImg = this.newSizeImg(widthImageBefore, heightImageBefore, widthDivEdit, heightDivEdit);
+            widthImage = newSizeImg.widthImage;
+            heightImage = newSizeImg.heightImage;
 
             imageTMP.onload = function() {
                 this.height = heightImage;
@@ -213,7 +250,6 @@ var photoEditor = {
             this.image.src = urlImg;
 
             document.getElementById('pe-input').addEventListener('change', function (e) {
-
                 var files = e.target.files;
                 tmp.uploadFromPC = true;
                 if (files && files.length > 0) {
@@ -223,17 +259,9 @@ var photoEditor = {
                         imageTMP = new Image();
                         imageTMP.src = reader.result;
                         imageTMP.onload = function () {
-                            if (this.width >= widthDivEdit || this.height >= heightDivEdit) {
-                                if (this.width >= widthDivEdit) {
-                                    tileWidth = this.width / widthDivEdit;
-                                    this.width = widthDivEdit;
-                                    this.height = this.height / tileWidth;
-                                } else {
-                                    tileHeight = this.height / heightDivEdit;
-                                    this.height = heightDivEdit;
-                                    this.width = this.width / tileHeight;
-                                }
-                            }
+                            var newSizeImg = tmp.newSizeImg(this.width, this.height, widthDivEdit, heightDivEdit);
+                            this.width = newSizeImg.widthImage;
+                            this.height = newSizeImg.heightImage;
 
                             tmp.ctx.canvas.width = this.width;
                             tmp.ctx.canvas.height = this.height;
@@ -259,6 +287,35 @@ var photoEditor = {
         }
     },
 
+    /**
+     * resize image to show full image
+     * @param widthImageBefore: width image before
+     * @param heightImageBefore: height image before
+     * @param widthDivEdit: width of area show image to editer
+     * @param heightDivEdit: height of area show image to editer
+     * @return: widthImage is new width Image
+     *         heightImage is new height Image
+     */
+    newSizeImg: function(widthImageBefore, heightImageBefore, widthDivEdit, heightDivEdit) {
+        if (heightImageBefore >= heightDivEdit && heightImageBefore >= widthImageBefore) {
+            tileHeight = heightImageBefore / heightDivEdit;
+            heightImage = heightDivEdit;
+            widthImage = widthImageBefore / tileHeight;
+        } else {
+            tileWidth = widthImageBefore / widthDivEdit;
+            widthImage = widthDivEdit;
+            heightImage = heightImageBefore / tileWidth;
+        }
+        return {
+            "widthImage": widthImage,
+            "heightImage": heightImage
+        };
+    },
+
+    /**
+     * display none all button
+     *
+     */
     refreshBtn: function() {
         var el = document.getElementsByClassName('pe-toolbar_button');
         for (var i = 0; i < el.length; i++) {
@@ -268,9 +325,12 @@ var photoEditor = {
         document.getElementById('pe-uploadImg').style.display = 'none';
     },
 
+    /**
+     *  push image to array
+     *
+     */
     pushImage: function(tmp) {
         var tempCtx = document.getElementById('pe-panel').getContext('2d');
-        //add image to img_arr (for undo/redo)
         var newImg = new Image();
         newImg.src = tempCtx.canvas.toDataURL();
 
@@ -313,19 +373,7 @@ var photoEditor = {
             el1[i].style.display = 'none';
         }
 
-        document.getElementById('pe-doneBttn').style.display = 'none';
-        document.getElementById('pe-cancelBttn').style.display = 'none';
-        document.getElementById('pe-widthInput').style.display = 'none';
-        document.getElementById('pe-heightInput').style.display = 'none';
-        document.getElementById('pe-slideBar').style.display = 'none';
-        document.getElementById('pe-vertical').style.display = 'none';
-        document.getElementById('pe-horizontal').style.display = 'none';
-        document.getElementById('pe-rotateLeft').style.display = 'none';
-        document.getElementById('pe-rotateRight').style.display = 'none';
-        document.getElementById('pe-cutdown').style.display = 'none';
-        document.getElementById('pe-cut-square').style.display = 'none';
-        document.getElementById('pe-ratio-4-3').style.display = 'none';
-        document.getElementById('pe-ratio-16-9').style.display = 'none';
+        this.hideBnt();
     },
 
     /**
@@ -333,6 +381,7 @@ var photoEditor = {
      *
      */
     cancelEditImage: function() {
+        this.checkCrop = false;
         var pos = this.stack_position;
         var image = this.img_arr[pos];
         document.getElementById("pe-panel").remove();
@@ -359,6 +408,17 @@ var photoEditor = {
             el1[i].style.display = 'none';
         }
 
+        this.hideBnt();
+        if(document.getElementById('parent') != null) {
+            document.getElementById('parent').remove();
+        }
+    },
+
+    /**
+     * display none all button
+     *
+     */
+    hideBnt: function() {
         document.getElementById('pe-doneBttn').style.display = 'none';
         document.getElementById('pe-cancelBttn').style.display = 'none';
         document.getElementById('pe-widthInput').style.display = 'none';
@@ -461,75 +521,6 @@ var photoEditor = {
         el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
     },
 
-    /**
-     * Initlize mousedown and mouseup event
-     *
-     */
-    initEventsOnCanvas: function() {
-        this.ctx.canvas.onmousedown = this.onMouseDown.bind(this);
-        this.ctx.canvas.onmouseup = this.onMouseUp.bind(this);
-        this.ctx.canvas.ontouchstart = this.onMouseDown.bind(this);
-        this.ctx.canvas.ontouchend = this.onMouseUp.bind(this);
-    },
-
-    onMouseDown: function(e) {
-        this.tmpCheckEventCanvas = true;
-        var loc;
-        if (e.type === "touchstart") {
-            loc = this.windowToCanvas(e.touches[0].clientX, e.touches[0].clientY);
-        } else {
-            loc = this.windowToCanvas(e.clientX, e.clientY);
-        }
-
-        e.preventDefault();
-        this.click = true;
-        if (!this.resize) {
-            this.ctx.canvas.onmousemove = this.onMouseMove.bind(this);
-            this.ctx.canvas.ontouchmove = this.onMouseMove.bind(this);
-            this.downPointX = loc.x;
-            this.downPointY = loc.y;
-            this.lastPointX = loc.x;
-            this.lastPointY = loc.y;
-        }
-    },
-
-    onMouseMove: function(e) {
-        e.preventDefault();
-        var loc;
-        if (this.click) {
-            if (e.type === "touchmove") {
-                loc = this.windowToCanvas(e.touches[0].clientX, e.touches[0].clientY);
-            } else {
-                loc = this.windowToCanvas(e.clientX, e.clientY);
-            }
-
-            this.lastPointX = loc.x;
-            this.lastPointY = loc.y;
-            this.reDrawCanvas();
-        }
-    },
-
-    onMouseUp: function(e) {
-        e.preventDefault();
-        if (e.type === "touchend") {
-            this.ctx.canvas.ontouchmove = this.onImageResize.bind(this);
-        } else {
-            this.ctx.canvas.onmousemove = this.onImageResize.bind(this);
-        }
-        this.click = false;
-    },
-
-    /**
-     * redraw canvas
-     *
-     */
-    reDrawCanvas: function() {
-        this.clearCanvas();
-        this.drawImage();
-        this.drawSelRect();
-        this.drawResizerBox();
-    },
-
     clearCanvas: function() {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         this.ctx.fillStyle = this.canvasBackgroundColor;
@@ -544,106 +535,25 @@ var photoEditor = {
     },
 
     /**
-     * Draw selection box on canvas
-     */
-    drawSelRect: function() {
-        this.ctx.strokeStyle = '#000000';
-        this.ctx.setLineDash([5]);
-        this.ctx.strokeRect(this.downPointX, this.downPointY, (this.lastPointX - this.downPointX), (this.lastPointY - this.downPointY));
-    },
-
-    /**
-     * resize the selection box.
-     * it works when click == true and hover on resize box == true
-     *
-     * @param  e
-     * @return {[type]}
-     */
-    onImageResize: function(e) {
-        var loc = this.windowToCanvas(e.clientX, e.clientY);
-        this.ctx.fillStyle = '#FF0000';
-        this.ctx.lineWidth = 1;
-        if (this.isResizeBoxHover(loc, this.downPointX, this.downPointY)) {
-            if (this.click) {
-                this.downPointX = loc.x
-                this.downPointY = loc.y;
-                this.reDrawCanvas();
-            }
-        } else if (this.isResizeBoxHover(loc, this.lastPointX, this.downPointY)) {
-            if (this.click) {
-                this.lastPointX = loc.x;
-                this.downPointY = loc.y
-                this.reDrawCanvas();
-            }
-        } else if (this.isResizeBoxHover(loc, this.lastPointX, this.lastPointY)) {
-            if (this.click) {
-                this.lastPointY = loc.y;
-                this.lastPointX = loc.x
-                this.reDrawCanvas();
-            }
-        } else if (this.isResizeBoxHover(loc, this.downPointX, this.lastPointY)) {
-            if (this.click) {
-                this.downPointX = loc.x;
-                this.lastPointY = loc.y
-                this.reDrawCanvas();
-            }
-        } else {
-            this.resize = false;
-            this.reDrawCanvas();
-        }
-    },
-
-    /**
-     * Detect the mousehover on given axis
-     */
-    isResizeBoxHover: function(loc, xPoint, yPoint) {
-        var hoverMargin = 3;
-        if (loc.x > (xPoint - this.hoverBoxSize - hoverMargin) && loc.x < (xPoint + this.hoverBoxSize + hoverMargin) && loc.y > (yPoint - this.hoverBoxSize - hoverMargin) && loc.y < (yPoint + 5 + hoverMargin)) {
-            this.ctx.fillRect(xPoint - this.hoverBoxSize, yPoint - this.hoverBoxSize, this.hoverBoxSize * 2, this.hoverBoxSize * 2);
-            this.resize = true;
-            return true;
-        }
-        return false;
-    },
-
-    /**
-     * Draw 4 resize box of 10 x 10
-     */
-    drawResizerBox: function() {
-        this.ctx.fillStyle = '#000000';
-        this.ctx.lineWidth = 1;
-        this.ctx.fillRect(this.downPointX - this.hoverBoxSize , this.downPointY - this.hoverBoxSize, this.hoverBoxSize * 2, this.hoverBoxSize * 2);
-        this.ctx.fillRect(this.lastPointX - this.hoverBoxSize, this.downPointY - this.hoverBoxSize, this.hoverBoxSize * 2, this.hoverBoxSize * 2);
-        this.ctx.fillRect(this.lastPointX - this.hoverBoxSize, this.lastPointY - this.hoverBoxSize, this.hoverBoxSize * 2, this.hoverBoxSize * 2);
-        this.ctx.fillRect(this.downPointX - this.hoverBoxSize, this.lastPointY - this.hoverBoxSize, this.hoverBoxSize * 2, this.hoverBoxSize * 2);
-    },
-
-    /**
-     * Translate to HTML coardinates to Canvas coardinates.
-     */
-    windowToCanvas: function(x, y) {
-        var canvas = this.ctx.canvas,
-            bbox = canvas.getBoundingClientRect();
-        return {
-            x: x - bbox.left * (canvas.width / bbox.width),
-            y: y - bbox.top * (canvas.height / bbox.height)
-        };
-    },
-
-    /**
      * Get the canavs, remove cutout, create image elemnet on UI.
      * @return {[type]}
      */
     cropImage: function() {
-        if (this.tmpCheckEventCanvas == true) {
+        if(this.checkCrop == true) {
             document.getElementById("pe-panel").remove();
             var data = "<canvas id='pe-panel'></canvas>";
             document.getElementById('pe-container').innerHTML += data;
             var tempCtx = document.getElementById('pe-panel').getContext('2d');
             tempCtx.clearRect(0, 0, tempCtx.canvas.style.width, tempCtx.canvas.style.height);
+
             tempCtx.canvas.width = this.lastPointX - this.downPointX;
             tempCtx.canvas.height = this.lastPointY - this.downPointY;
-            tempCtx.drawImage(this.image, this.downPointX, this.downPointY, (this.lastPointX - this.downPointX), (this.lastPointY - this.downPointY), 0, 0, (this.lastPointX - this.downPointX), (this.lastPointY - this.downPointY));
+            tempCtx.drawImage(this.image, this.downPointX, this.downPointY,
+                (this.lastPointX - this.downPointX),
+                (this.lastPointY - this.downPointY),
+                0, 0,
+                (this.lastPointX - this.downPointX),
+                (this.lastPointY - this.downPointY));
 
             imageData = document.getElementById('pe-panel').getContext('2d').canvas.toDataURL();
             var width = document.getElementById('pe-panel').width;
@@ -656,10 +566,16 @@ var photoEditor = {
                 width: width,
                 height: height
             }
-            this.img_arr.push(tmp);
+
+            this.img_arr.splice(this.stack_position + 1, 0, tmp);
             this.stack_position++;
+            this.checkCrop = false;
         }
+
         this.closeEditToolBar();
+        if (document.getElementById('parent') != null) {
+            document.getElementById('parent').remove();
+        }
         this.tmpCheckEventCanvas = false;
     },
 
@@ -1052,13 +968,12 @@ var photoEditor = {
             height: tempCtx.canvas.height
         }
 
-        this.img_arr.push(imgValue);
+        this.img_arr.splice(this.stack_position + 1, 0, imgValue);
         this.stack_position++;
-
         this.closeEditToolBar();
     },
 
-     /**
+    /**
      * render to HTML IMG Tag
      *
      */
@@ -1077,5 +992,195 @@ var photoEditor = {
             this.style.display = 'none';
             document.getElementsByClassName('pe-main')[0].style.display = 'block';
         });
+    },
+
+    /**
+     * make resize area show in image
+     * div: area to be change
+     * tmp:  is the photo you want to crop 
+     */
+    makeResizableDiv: function(div, tmp, ratio) {
+        const parent = document.getElementById('parent');
+        const element = document.querySelector(div);
+        const resizers = document.querySelectorAll(div + ' .resizer');
+        const minimum_size = 36;
+        let original_width = 0;
+        let original_height = 0;
+        let original_x = 0;
+        let original_y = 0;
+        let oringin_right = 0;
+        let oringin_bottom = 0;
+        let original_mouse_x = 0;
+        let original_mouse_y = 0;
+
+        tmp.downPointX = parseFloat(getComputedStyle(element, null).getPropertyValue('left').replace('px', ''));
+        tmp.downPointY = parseFloat(getComputedStyle(element, null).getPropertyValue('top').replace('px', ''));
+        tmp.lastPointX = tmp.downPointX + parseFloat(getComputedStyle(element, null).getPropertyValue('width').replace('px', ''));
+        tmp.lastPointY = tmp.downPointY + parseFloat(getComputedStyle(element, null).getPropertyValue('height').replace('px', ''));
+
+        for (let i = 0;i < resizers.length; i++) {
+            const currentResizer = resizers[i];
+
+            currentResizer.addEventListener('mousedown', function(e) {
+                var panelTmp = document.getElementById('pe-panel');
+                e.preventDefault()
+                original_width = parseFloat(getComputedStyle(element, null).getPropertyValue('width').replace('px', ''));
+                original_height = parseFloat(getComputedStyle(element, null).getPropertyValue('height').replace('px', ''));
+                original_x = parseFloat(getComputedStyle(element, null).getPropertyValue('left').replace('px', ''));
+                original_y = parseFloat(getComputedStyle(element, null).getPropertyValue('top').replace('px', ''));
+                oringin_right = panelTmp.width - original_x - original_width;
+                oringin_bottom = panelTmp.height - original_y - original_height;
+                original_mouse_x = e.pageX;
+                original_mouse_y = e.pageY;
+                widthParent = panelTmp.width;
+                heightParent = panelTmp.height;
+                window.addEventListener('mousemove', resize);
+                parent.addEventListener('mouseup', stopResize);
+            });
+
+            function resize(e) {
+                checkLeft = parseFloat(getComputedStyle(element, null).getPropertyValue('left').replace('px', ''));
+                checkTop = parseFloat(getComputedStyle(element, null).getPropertyValue('top').replace('px', ''));
+                checkWidth = parseFloat(getComputedStyle(element, null).getPropertyValue('width').replace('px', ''));
+                checkHeight = parseFloat(getComputedStyle(element, null).getPropertyValue('height').replace('px', ''));
+
+                if (currentResizer.classList.contains('bottom-right')) {
+                    if (ratio === null) {
+                        width = original_width + (e.pageX - original_mouse_x);
+                        height = original_height + (e.pageY - original_mouse_y);
+                    } else {
+                        width = original_width + (e.pageX - original_mouse_x);
+                        height = (original_width + (e.pageX - original_mouse_x)) / ratio;
+                    }
+
+                    if ((checkLeft + checkWidth) >= widthParent) {
+                        stopResize();
+                        return element.style.width = widthParent - checkLeft - 1 + 'px';
+                    }
+                    if ((checkTop + checkHeight) >= heightParent) {
+                        stopResize();
+                        return element.style.height = heightParent - checkTop - 1 + 'px';
+                    }
+                } else {
+                    if (ratio === null) {
+                        width = original_width - (e.pageX - original_mouse_x);
+                        height = original_height - (e.pageY - original_mouse_y);
+                        if (width > minimum_size && height > minimum_size) {
+                            element.style.left = original_x + (e.pageX - original_mouse_x) + 'px';
+                            element.style.top = original_y + (e.pageY - original_mouse_y) + 'px';
+                        }
+                    } else {
+                        width = original_width - (e.pageX - original_mouse_x);
+                        height = (original_width - (e.pageX - original_mouse_x)) / ratio;
+                        if (height > minimum_size) {
+                            element.style.left = widthParent - oringin_right - width + 'px';
+                            element.style.top = heightParent - oringin_bottom - height + 'px';
+                        }
+                    }
+
+                    if (checkTop < 0) {
+                        stopResize();
+                        if (width > heightParent){
+                            return element.style.height = heightParent + 'px';
+                        }
+                        return element.style.top = '0px';
+
+                    } if (checkLeft < 0) {
+                        stopResize();
+                        if (width > widthParent) {
+                            return element.style.width = widthParent + 'px';
+                        }
+                        return element.style.left = '0px';
+                    }
+                }
+                if (width > minimum_size && height > minimum_size) {
+                    element.style.width = width + 'px';
+                    element.style.height = height + 'px';
+                }
+
+                tmp.downPointX = parseFloat(getComputedStyle(element, null).getPropertyValue('left').replace('px', ''));
+                tmp.downPointY = parseFloat(getComputedStyle(element, null).getPropertyValue('top').replace('px', ''));
+                tmp.lastPointX = tmp.downPointX + parseFloat(getComputedStyle(element, null).getPropertyValue('width').replace('px', ''));
+                tmp.lastPointY = tmp.downPointY + parseFloat(getComputedStyle(element, null).getPropertyValue('height').replace('px', ''));
+            }
+
+            function stopResize() {
+                window.removeEventListener('mousemove', resize);
+            }
+        }
+    },
+
+    /**
+     * drag element when you crop image
+     * elmnt: is the dragged area in tmp
+     * tmp: is the area to the elmnt drag
+     */
+    dragElement: function(elmnt, tmp) {
+        document.getElementsByClassName('top-left')[0].onmouseover = closeDragElement
+        document.getElementsByClassName('top-left')[0].onmousedown = closeDragElement
+        document.getElementsByClassName('bottom-right')[0].onmouseover = closeDragElement
+        document.getElementsByClassName('bottom-right')[0].onmousedown = closeDragElement
+
+        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        document.getElementById("div-move").onmousedown = dragMouseDown;
+
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+            divParent = document.getElementById('parent');
+            e = e || window.event;
+            e.preventDefault();
+
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            const maxWidht = parseFloat(getComputedStyle(divParent, null).getPropertyValue('width').replace('px', ''));
+            const maxHeight = parseFloat(getComputedStyle(divParent, null).getPropertyValue('height').replace('px', ''));
+            const floadTop = parseFloat(getComputedStyle(elmnt, null).getPropertyValue('top').replace('px', ''));
+            const floadLeft = parseFloat(getComputedStyle(elmnt, null).getPropertyValue('left').replace('px', ''));
+            const floadWidth = parseFloat(getComputedStyle(elmnt, null).getPropertyValue('width').replace('px', ''));
+            const floadHeight = parseFloat(getComputedStyle(elmnt, null).getPropertyValue('height').replace('px', ''));
+
+            if (floadTop < 0){
+                closeDragElement;
+                return elmnt.style.top = 0 + 'px';
+            }
+
+            if ((floadTop + floadHeight) > maxHeight){
+                closeDragElement;
+                return elmnt.style.top = maxHeight - floadHeight + 'px';
+            }
+
+            if (floadLeft < 0) {
+                closeDragElement;
+                return elmnt.style.left = 0 + 'px';
+            }
+
+            if ((floadLeft + floadWidth) > maxWidht) {
+                closeDragElement;
+                return elmnt.style.left = maxWidht - floadWidth + 'px';
+            }
+
+            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+
+            tmp.downPointX = floadLeft;
+            tmp.downPointY = floadTop;
+            tmp.lastPointX = tmp.downPointX + floadWidth;
+            tmp.lastPointY = tmp.downPointY + floadHeight;
+        }
+
+        function closeDragElement() {
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
     }
 };
