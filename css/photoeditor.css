@@ -475,9 +475,11 @@ figure {
 }
 #pe-zoominBttn {
     font-size: 25px;
+    cursor: pointer;
 }
 #pe-zoomoutBttn {
     font-size: 25px;
+    cursor: pointer;
 }
 #pe-export {
     position: absolute;
@@ -489,6 +491,7 @@ figure {
     margin-top: 4px;
     padding-top: 7px;
     display: inline;
+    cursor: pointer;
 }
 #header {
     opacity: 0.7;
@@ -499,6 +502,7 @@ figure {
 #btnClose {
     height: 23px;
     width: 40px;
+    cursor: pointer;
 }
 .fa-window-close {
     font-size: 24px;
