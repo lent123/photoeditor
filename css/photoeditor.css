@@ -6,16 +6,6 @@ html, body, div, span {
     font-size: 100%;
     vertical-align: baseline;
 }
-.divClose {
-    position: fixed;
-    top: 0px;
-    right: 9px;
-    cursor: pointer;
-}
-
-.divClose:hover #idClose {
-    color: gray;
-}
 
 html, body{
     height: 100%;
@@ -35,8 +25,9 @@ html, body{
     color: #fff;
     display: inline-block;
     position: absolute;
-    top: 94%;
-    width: max-content;
+    top: 98%;
+    width: 100%;
+    height: 54px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -119,11 +110,11 @@ html, body{
 }
 
 #pe-container {
-    height: 90%;
-    overflow: hidden;
+    height: 88%;
     width: 80%;
+    overflow: hidden;
     position: absolute;
-    top: 50%;
+    top: 51%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -135,8 +126,8 @@ html, body{
     }
 
     #pe-container {
-        width: 100%;
-        height: 100%;
+        height: 88%;
+        width: 80%;
     }
 
     .pe-toolbar_button {
@@ -174,8 +165,8 @@ html, body{
     }
 
     #pe-container {
-        width: 100%;
-        height: 100%;
+        height: 88%;
+        width: 80%;
     }
 
     #pe-panel {
@@ -186,7 +177,7 @@ html, body{
     .pe-toolbar {
         width: 32rem;
         height: 2rem;
-        top: 90%;
+        top: 95%;
     }
 
     .pe-toolbar_button {
@@ -215,8 +206,8 @@ html, body{
     }
 
     #pe-container {
-        width: 100%;
-        height: 100%;
+        height: 88%;
+        width: 80%;
     }
 
     #pe-panel {
@@ -226,7 +217,7 @@ html, body{
 
     .pe-toolbar {
         width: 46rem;
-        top: 90%;
+        top: 96%;
     }
 
     .pe-toolbar_button {
@@ -266,7 +257,7 @@ html, body{
         margin-left: 15px;
         font-size: 20px;
     }
-    
+
     #pe-filterArea {
         width: 100%;
         white-space: nowrap;
@@ -406,9 +397,110 @@ figure {
 .table-img ul li {
     list-style: none;
     display: inline;
-}  
+}
 
 #pe-ratio-4-3, #pe-ratio-16-9 {
-  border: 1px solid white;
-  border-radius: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.resizable {
+    margin : auto;
+    position: absolute;
+}
+
+.resizable .resizers{
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 1;
+    box-sizing: border-box;
+}
+
+.resizable .resizers .resizer {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #f44242;
+    position: absolute;
+}
+
+.resizable .resizers .resizer.top-left {
+    left: -5px;
+    top: -5px;
+    cursor: nwse-resize; /*resizer cursor*/
+}
+.resizable .resizers .resizer.top-right {
+    right: -5px;
+    top: -5px;
+    cursor: nesw-resize;
+}
+.resizable .resizers .resizer.bottom-left {
+    left: -5px;
+    bottom: -5px;
+    cursor: nesw-resize;
+}
+.resizable .resizers .resizer.bottom-right {
+    right: -5px;
+    bottom: -5px;
+    cursor: nwse-resize;
+}
+#parent {
+    position: relative;
+    border: solid 1px green;
+    background: black;
+    opacity: 0.5;
+}
+#div-move {
+    width: 98%;
+    height: 98%;
+    top: 1%;
+    left: 1%;
+    position: absolute;cursor: move;
+}
+.zoom {
+    width: 60px;
+    height: 38px;
+    margin: 6px;
+    color: white;
+    display: inline-block;
+}
+#div-zoom {
+    height: 45px;
+    width: 100%;
+    margin: auto;
+    background-color: black;
+    text-align: center;
+}
+#pe-zoominBttn {
+    font-size: 25px;
+}
+#pe-zoomoutBttn {
+    font-size: 25px;
+}
+#pe-export {
+    position: absolute;
+    right: 2%;
+    background-color: #51aeeb;
+    width: 80px;
+    height: 30px;
+    border-radius:  5px;
+    margin-top: 4px;
+    padding-top: 7px;
+    display: inline;
+}
+#header {
+    opacity: 0.7;
+}
+#sp-export{
+    padding-left: 5px;
+}
+#btnClose {
+    height: 23px;
+    width: 40px;
+}
+.fa-window-close {
+    font-size: 24px;
+    color: white;
 }
