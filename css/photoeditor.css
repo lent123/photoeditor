@@ -1,6 +1,6 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 html, body, div, span {
-    margin: 0;
+    margin: 0px;
     padding: 0;
     border: 0;
     font-size: 100%;
@@ -21,13 +21,12 @@ html, body{
 /*====toolBar CSS===*/
 .pe-toolbar {
     background-color: rgba(0,0,0,.5);
-    bottom: 1rem;
+    bottom: -50px;
     color: #fff;
     display: inline-block;
     position: absolute;
-    top: 98%;
     width: 100%;
-    height: 54px;
+    height: 100px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -70,6 +69,7 @@ html, body{
 
 .pe-tooltip {
     padding: 8px;
+    font-size: 24px;
 }
 
 .pe-tooltiptext {
@@ -86,8 +86,10 @@ html, body{
 
 .pe-toolbar_button:hover{
     cursor: pointer;
-    background: #16a1e7
+    background: #16a1e7;
 }
+
+
 
 .pe-toolbar_button:hover .pe-tooltiptext{
     display: block;
@@ -95,6 +97,10 @@ html, body{
 
 .pe-toolbar_button {
     display: inline-block;
+    margin: 6px;
+    width: 2.3rem;
+    height: 2.3rem;
+    margin-top: 28px;
 }
 
 .pe-img-edit{
@@ -110,11 +116,11 @@ html, body{
 }
 
 #pe-container {
-    height: 88%;
-    width: 80%;
+    height: 85%;
+    width: 85%;
     overflow: hidden;
     position: absolute;
-    top: 51%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -126,13 +132,15 @@ html, body{
     }
 
     #pe-container {
-        height: 88%;
-        width: 80%;
+        height: 85%;
+        width: 85%;
     }
 
     .pe-toolbar_button {
+        font-size: .875rem;
+        height: 3rem;
         text-align: center;
-        width: 1.5rem;
+        width: 3rem;
     }
 
     .pe-tooltip {
@@ -142,11 +150,6 @@ html, body{
     .fa {
         font: normal normal normal 14px/1 FontAwesome;
         color: #ffffff;
-    }
-
-    #pe-panel {
-        height: auto;
-        top: 45%;
     }
 
     #pe-filterArea {
@@ -165,26 +168,15 @@ html, body{
     }
 
     #pe-container {
-        height: 88%;
-        width: 80%;
-    }
-
-    #pe-panel {
-        width: 75%;
-        height: auto;
-    }
-
-    .pe-toolbar {
-        width: 32rem;
-        height: 2rem;
-        top: 95%;
+        height: 85%;
+        width: 85%;
     }
 
     .pe-toolbar_button {
         font-size: .875rem;
-        height: 2rem;
+        height: 3rem;
         text-align: center;
-        width: 2rem;
+        width: 3rem;
     }
 
     .fa {
@@ -206,18 +198,8 @@ html, body{
     }
 
     #pe-container {
-        height: 88%;
-        width: 80%;
-    }
-
-    #pe-panel {
-        width: 75%;
-        height: auto;
-    }
-
-    .pe-toolbar {
-        width: 46rem;
-        top: 96%;
+        height: 85%;
+        width: 85%;
     }
 
     .pe-toolbar_button {
@@ -399,11 +381,6 @@ figure {
     display: inline;
 }
 
-#pe-ratio-4-3, #pe-ratio-16-9 {
-    border: 1px solid white;
-    border-radius: 10px;
-}
-
 .resizable {
     margin : auto;
     position: absolute;
@@ -467,9 +444,10 @@ figure {
     display: inline-block;
 }
 #div-zoom {
-    height: 45px;
+    height: 72px;
     width: 100%;
     margin: auto;
+    padding-top: 27px;
     background-color: black;
     text-align: center;
 }
@@ -493,9 +471,6 @@ figure {
     display: inline;
     cursor: pointer;
 }
-#header {
-    opacity: 0.7;
-}
 #sp-export{
     padding-left: 5px;
 }
@@ -503,8 +478,34 @@ figure {
     height: 23px;
     width: 40px;
     cursor: pointer;
+    display: inline-block;
+    float: left;
+    margin: 10px 0px;
 }
-.fa-window-close {
+.fa-times {
     font-size: 24px;
     color: white;
 }
+.fa-check, .fa-close {
+    font-size: 20px;
+    margin-left: -3px;
+}
+#pe-ratio-4-3, #pe-ratio-16-9 {
+    position: relative;
+    top: 4px;
+}
+#vline {
+    display: inline-block;
+    margin-right: 10px;
+    border-left: 1px solid white;
+    height: 48px;
+    position: absolute;
+    top: 28px;
+}
+#pe-cut-square, #pe-custom{
+    position: relative;
+    top: -4px;
+}
+#hover-span43:hover , #hover-span169:hover {
+    background: #16a1e7;
+} 
